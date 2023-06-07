@@ -1,5 +1,5 @@
 # JavaScript-DIO
-Repositório contendo os arquivos de aula de JavaScript da DIO
+## Repositório contendo os arquivos da Formação JavaScript Developer da DIO
 ---
 ### Bem-vindo/Welcome!
 
