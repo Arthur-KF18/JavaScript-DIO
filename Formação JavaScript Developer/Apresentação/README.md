@@ -4,6 +4,4 @@
 - Será apresentado diferentes conceitos sobre JavaScript, e irá ser imersiva de forma a aprender desde os primeiros passos até conceitos mais especificos.
 - Para configurar o ambiente de desenvolvimento, é necessário o Node
 
-#### Módulo 1
-
 - 
