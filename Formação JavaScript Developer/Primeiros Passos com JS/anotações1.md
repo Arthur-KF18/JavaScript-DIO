@@ -42,4 +42,23 @@ let soma = 10 + 10;
   1 - Preço do combustível;
   2 - Gasto médio do combustível;
   3 - Distância em KM da viagem;
-- Imprimir no console o valor que será gasto de combustível para realizar esta viagem
+- Imprimir no console o valor que será gasto para realizar esta viagem
+
+```js
+let precoCombustivel = 5.63;
+const kmPorLitros = 12.1; 
+const distanciaKm = 100; 
+
+let mediaKm = distanciaKm / kmPorLitros;
+console.log("a quantidade de litros foram: " + Math.round(mediaKm)+ "L")
+
+let mediaPreco = mediaKm * precoCombustivel;
+console.log("a média do combustível é " + Math.round(mediaPreco) + " R$");
+```
+
+- O que ocorre é que __a cada litro, andamos a quantidade de km em `kmPorLitros`, e para o valor da distância `distanciaKm`, temos de dividir a quantidade de km andados pela distância__
+- O preço da viagem será a divisão entre eles __multiplicado pelo preço da gasolina, já que a gasolina anda uma quantidade `x` de km__ 
+- __É importante lembrar que usar o padrão camel case, faz com que as variáveis sejam chamadas `destaForma`, onde a segunda palavra é colocado a primeira letra em maiúscula__
+- Podemos inserir valores decimais, __porém, ao invés da vírgula, será usado o ponto: `2.50`__
+- Podemos melhorar ainda mais os valores impressos utilizando o `Math.round(variavel)`, onde ele irá pegar o resultado decimal e irá aproximar ao valor mais perto
+- __Programa é um conjunto de instruções para o computador__
