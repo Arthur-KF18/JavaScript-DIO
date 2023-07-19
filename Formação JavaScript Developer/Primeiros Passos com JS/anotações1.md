@@ -62,3 +62,7 @@ console.log("a média do combustível é " + Math.round(mediaPreco) + " R$");
 - Podemos inserir valores decimais, __porém, ao invés da vírgula, será usado o ponto: `2.50`__
 - Podemos melhorar ainda mais os valores impressos utilizando o `Math.round(variavel)`, onde ele irá pegar o resultado decimal e irá aproximar ao valor mais perto
 - __Programa é um conjunto de instruções para o computador__
+
+#### Estruturas Condicionais
+
+- 
