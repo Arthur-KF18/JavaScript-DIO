@@ -65,4 +65,43 @@ console.log("a média do combustível é " + Math.round(mediaPreco) + " R$");
 
 #### Estruturas Condicionais
 
+- Agora que já entendemos sobre __variáveis mutaveis com `let` e variáveis não alteráveis com `const` iremos ver sobre as estruturas condicionais__
+- O que é uma condicional? __Dentro dos tipos de variáveis, temos o tipo `boolean`, ele é a variável que representa verdadeiro e falso. Sempre que quisermos expressar um verdadeiro e falso, utilizamos um `boolean`__
+- uma variável do tipo `boolean` pode ser representada desta forma:
+
+```js
+const carroAzulRenan = true;
+const carroAzulThiago = false;
+```
+
+- __O Renan possui carro azul e o Thiago não. Simples desta forma, os valores `true` ou `false` trazem o tipo booleano__
+- A condicional, é diferente, __pois como o próprio nome diz, é uma condição__. Por exemplo `10 > 5`, sim, __se 10 é maior que 5, é uma condição verdadeira, se for `10 < 5`, é uma condição falsa__. Além disso, __podemos utilizar o `>=`, "maior ou igual", que também verifica se é verdadeiro ou falso__
+- Vamos ter o seguinte exemplo:
+
+```javascript
+const numero = 10;
+const eNumeroPar = numero % 2;
+
+console.log(eNumeroPar);
+```
+
+- __Quando fazemos uma divisão, para aplicarmos se ele for par ou ímpar, ele deve ser múltiplo de 2. Assim, ao dividirmos um número por dois, se existir resto, sabemos que ele será ímpar. Para podermos verificar isto no javaScript, usamos o operador `%`.__
+- o `%` é um __operador aritimético responsável por trazer o valor do resto da divisão__
+- Ao inserirmos o valor 10, e usarmos a função `eNumeroPar`, __10 será dividido e o resto da divisão será dividido por 2. Assim, ele retorna `0`, mostrando que é par. Usando 5, retornará 1, mostrando que o número é ímpar__
+- Ao mudarmos o valor de `eNumeroPar` para 5 por exemplo, __10 é múltiplo de 5, então será verdadeiro. Porém 11 não. Estamos verificando se é par ou é múltiplo do número que colocamos, sendo eficiente a nossa conta__
+- Podemos verificar então se o número é par através do `(numero % 2) === 0`. Ao usarmos `node aula.js` novamente e verificarmos o valor 10, __irá retornar `true`__
+
+```javascript
+const numero = 10;
+const eNumeroPar = (numero % 2) === 0;
+
+console.log(eNumeroPar)
+```
+
+- __O `===` verifica estritamente se o valor do resultado da divisão é 0. Sempre o retorno de uma condicional retorna um `boolean`__
+- Este é um __operador de igualdade__. Podemos entender de forma que:
+  - `=` : Atribtuição
+  - `==` : Igualdade, porém ignora o tipo da variável(string ou int)
+  - `===` : Igualdade estrita
+- Verificamos isso com `const eNumeroPar = (numero % 2) === '0';` e a resposta no console sendo __false, já que o resultado `ìnt` não é igual a `string`__
 - 
