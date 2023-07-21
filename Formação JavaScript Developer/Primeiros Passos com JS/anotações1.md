@@ -35,7 +35,7 @@ let soma = 10 + 10;
 
 - Entendemos que, __criamos espaços de memória no computador, e que podemos realizar operações, onde o resultado é guardado dentro de uma variável e mostrado no console. Chamamos isso de computação de alto nível__
 
-##### Desafio:
+##### Desafio
 
 - Criar um programa para calcular o valor de uma viagem:
   - 3 variáveis, sendo elas:
@@ -57,7 +57,7 @@ console.log("a média do combustível é " + Math.round(mediaPreco) + " R$");
 ```
 
 - O que ocorre é que __a cada litro, andamos a quantidade de km em `kmPorLitros`, e para o valor da distância `distanciaKm`, temos de dividir a quantidade de km andados pela distância__
-- O preço da viagem será a divisão entre eles __multiplicado pelo preço da gasolina, já que a gasolina anda uma quantidade `x` de km__ 
+- O preço da viagem será a divisão entre eles __multiplicado pelo preço da gasolina, já que a gasolina anda uma quantidade `x` de km__
 - __É importante lembrar que usar o padrão camel case, faz com que as variáveis sejam chamadas `destaForma`, onde a segunda palavra é colocado a primeira letra em maiúscula__
 - Podemos inserir valores decimais, __porém, ao invés da vírgula, será usado o ponto: `2.50`__
 - Podemos melhorar ainda mais os valores impressos utilizando o `Math.round(variavel)`, onde ele irá pegar o resultado decimal e irá aproximar ao valor mais perto
@@ -185,7 +185,7 @@ if ((numero % 2) === 0) {
 const isoNumeroEPar = (numero % 2) === 0
 ```
 
-#### Desafio 
+#### Desafio
 
 - Criar um programa para calcular o valor de uma viagem:
   - 5 variáveis, sendo elas:
@@ -233,3 +233,40 @@ if (combustivelNoCarro === 'gasolina') {
 
 - O código acima __foi melhorado com mais aspectos do que apresentado no curso, tendo diesel também como combustível, além de utilizar o `console.log` apenas quando a condição for atendida__
 
+#### Praticando com Variáveis, Operadores e Estruturas Condicionais
+
+1. Faça um algoritmo que dado as 3 notas tiradas por um aluno em um semestre da faculdade calcule e imprima a sua média e sua classificação conforme a tabela abaixo:
+
+Média = (nota 1 + nota 2 + nota 3)/ 3;
+
+- classificação:
+  - Média menor que 5, reprovado;
+  - Média entre 5 e 7, recuperação
+  - Média acima de 7, passou de semestre
+
+- Resposta:
+
+```javascript
+const nota1 = 7; 
+const nota2 = 6; 
+const nota3 = 7; 
+
+const mediaNotas = (nota1 + nota2 + nota3)/3;
+
+console.log("A nota que você tirou foi: " + Math.round(mediaNotas));
+
+if (mediaNotas < 5) {
+    console.log('Você foi reprovado')
+} else if (mediaNotas >= 5 && mediaNotas < 7) {
+    console.log('Você está de recuperação')
+} else {
+    console.log('Você foi aprovado')
+}
+```
+
+- __Nõs utilizamos um operador lógico AND, representado por `&&`. Além dele temos NOT, `!`, e OR, representado por `||`__
+- Se o número __for maior que 7, sera aprovado automaticamente, então não é necessária uma outra condição ao finalizarmos a operação__
+
+2. 
+
+3. third
