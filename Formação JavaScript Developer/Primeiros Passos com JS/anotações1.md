@@ -303,4 +303,37 @@ if (IMC < 18.5) {
 - __Usando a propriedade `Math` podemos fazer operações matemáticas com javaScript, já que ela é uma biblioteca da linguagem. utilizando o método `Math.pow(x, y)`, onde `x` é nosso número, sendo ele a altura ou qualquer valor, e `y` o número pelo qual iremos fazer seu quadrado. Por exemplo, para calcularmos o quadrado de 2, usamos `Math.pow(2, 2)`, e o resultado sendo 4__
 - Também __podemos guardar variáveis dentro do método, facilitando o `input` dos valores__
 
-3. third
+3. Elabore um algoritmo que calcule o que deve ser pago por um produto, considerando o preço normal de etiqueta e a escolha da condição de pagamento.
+
+- Utilize os códigos da tabela a seguir para ler qual a condição de pagamento escolhida e efetuar o cálculo adequado
+
+- Código Condição de pagamento:
+  - À vista Débito, recebe 10% de desconto
+  - À vista no dinheiro ou PIX, recebe 15% de desconto
+  - Em duas vezes, preço normal da etiqueta, sem juros
+  - acima de duas vezes, preço normal da etiqueta mais juros de 10%
+
+- Resposta:
+
+```javascript
+const metodoPagamento = 'PIX';
+const quantidadeVezes = 3;
+const valorEtiqueta = 7.35;
+
+const desconto10 = valorEtiqueta - (valorEtiqueta * 0.10);
+const desconto15 = valorEtiqueta - (valorEtiqueta * 0.15);
+const juros10 = valorEtiqueta + (valorEtiqueta * 0.10);
+
+console.log("Desconto de 10%: " + (valorEtiqueta * 0.10).toFixed(2));
+console.log("Desconto de 15%: " + (valorEtiqueta * 0.15).toFixed(2));
+
+if (metodoPagamento === 'Debito') {
+    console.log("O valor que irá pagar será de: " + desconto10.toFixed(2) + "R$")
+} else if (metodoPagamento === 'PIX' || metodoPagamento === 'Dinheiro') {
+    console.log("O valor que irá pagar será de: " + desconto15.toFixed(2) + "R$")
+} else if (metodoPagamento === 'Credito' && quantidadeVezes === 2) {
+    console.log("O valor que irá pagar será de: " + valorEtiqueta.toFixed(2) + "R$")
+} else if (metodoPagamento === 'Credito' && quantidadeVezes > 2) {
+    console.log("O valor que irá pagar será de: " + juros10.toFixed(2) + "R$")
+}
+```

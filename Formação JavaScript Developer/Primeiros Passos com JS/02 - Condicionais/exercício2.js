@@ -1,5 +1,5 @@
-const peso = 89;
-const altura = 1.87;
+const peso = 88;
+const altura = 1.63;
 const alturaCalculada = Math.pow(altura, 2);
 
 const IMC = peso / alturaCalculada;
