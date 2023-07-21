@@ -164,3 +164,72 @@ if (numero === 0) {
 - Dessa forma, entendemos de forma correta __as estruturas condicionais simples, já que podemos melhorar ainda mais a maneira como podemos escrevê-las também__
 - Nessa estrutura, __podemos adicionar outros `else if` se termos outras condições a serem atendidas__
 - Mas como pode se perceber, __a repetição desta estrutura condicional se torna confusa ao ser repetida diversas vezes, já que se torna difícil de ler, não sendo uma boa prática__
+- Para uma boa prática, __ao invés de termos uma variável separada para validar, podemos coloca-la unicamente no nosso `if`__:
+
+```javascript
+const numero = 12;
+
+if ((numero % 2) === 0) {
+    console.log('O número é par')
+} else {
+    console.log('O número é ímpar')
+}
+```
+
+- __O `numero` irá ser verificado diretamente, e conseguimos verificar se é `par` ou `impar` sem precisar de uma outra variável__
+- Fica claro do que ocorreu para nós, __já que nós lemos e entendemos a linguagem. Porém, como podemos fazer para deixar legivél, de forma que qualquer pessoa possa tentar ler?__
+- Simples, __guardamos a função em uma variável, de fácil leitura e identificação__
+- __Temos uma convenção utilizada quando estamos lidando com variáveis booleanas que é utilziar `is` na frente da nossa variável__
+
+```js
+const isoNumeroEPar = (numero % 2) === 0
+```
+
+#### Desafio 
+
+- Criar um programa para calcular o valor de uma viagem:
+  - 5 variáveis, sendo elas:
+  1 - Preço do etanol;
+  2 - Preço do combustível;
+  3 - O tipo de combustível que está no seu carro;
+  4 - Gasto médio do combustível do carro por KM;
+  5 - Distância em KM da viagem;
+- Imprimir no console o valor que será gasto para realizar esta viagem
+
+- Dica importante sobre `strings`: __usamos geralmente `''` ou `crases` para definirmos elas, já que o uso de `""` é mais focado dentro do HTML__
+
+```javascript
+let precoEtanol = 3.89;
+let precoGasolina = 5.63;
+const kmPorLitros = 10;
+const distanciaKm = 150;
+let combustivelNoCarro = 'gasolina';
+```
+
+- Definimos nossas variáveis desta forma.
+
+```javascript
+let precoEtanol = 3.89;
+let precoGasolina = 5.63;
+let precoDiesel = 5.01;
+const kmPorLitros = 12.5;
+const distanciaKm = 300;
+let combustivelNoCarro = 'etanol';
+
+let litrosConsumidos = distanciaKm / kmPorLitros;
+
+let gasolina = litrosConsumidos * precoGasolina;
+let etanol = litrosConsumidos * precoEtanol;
+let diesel = litrosConsumidos * precoDiesel;
+
+if (combustivelNoCarro === 'gasolina') {
+    console.log("a média da gasolina é " + gasolina.toFixed(2) + " R$");
+} else if (combustivelNoCarro === 'etanol') {
+    console.log("a média do etanol é " + etanol.toFixed(2) + " R$");
+} else if (combustivelNoCarro === 'diesel') {
+    console.log("a média do diesel é " + diesel.toFixed(2) + " R$");
+}
+```
+
+- O código acima __foi melhorado com mais aspectos do que apresentado no curso, tendo diesel também como combustível, além de utilizar o `console.log` apenas quando a condição for atendida__
+
