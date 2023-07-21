@@ -141,3 +141,26 @@ if (eNumeroPar) {
 ```
 
 - __Se o número for par, imprima o primeiro `console`, porém, se não for, imprima o segundo `console`__
+- Porém, agora vamos pensar da seguinte forma. Sabemos que se inserirmos 0, __a mensagem retornada será `Par`__. Porém, __e se quisermos que 0 tenha uma mensagem específica?__
+- Podemos fazer da seguinte forma:
+
+```javascript
+if (numero === 0) {
+    console.log('Número inválido!')
+}
+```
+
+- Isto funcionará, e o número será datado como inválido. __Porém, nós temos duas condicionais, e mesmo depois de verificar que é inválido, o outro `if` irá funcionar. Precisamos então que a condição de par ou ímpar não funcione quando o número for 0__
+- Podemos utilizar o `else if`, ou seja __se o número não for 0, execute o `if` que possuímos__
+
+```javascript
+if (numero === 0) {
+    console.log('Número inválido!')
+} else if {
+  // condicionais
+}
+```
+
+- Dessa forma, entendemos de forma correta __as estruturas condicionais simples, já que podemos melhorar ainda mais a maneira como podemos escrevê-las também__
+- Nessa estrutura, __podemos adicionar outros `else if` se termos outras condições a serem atendidas__
+- Mas como pode se perceber, __a repetição desta estrutura condicional se torna confusa ao ser repetida diversas vezes, já que se torna difícil de ler, não sendo uma boa prática__
