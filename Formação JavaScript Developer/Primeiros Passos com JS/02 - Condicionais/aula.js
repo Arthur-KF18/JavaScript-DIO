@@ -1,4 +1,8 @@
-const numero = 10;
+const numero = 0;
 const eNumeroPar = (numero % 2) === 0;
 
-console.log(eNumeroPar)
+if (eNumeroPar) {
+    console.log('Par')
+} else {
+    console.log('ímpar')
+}

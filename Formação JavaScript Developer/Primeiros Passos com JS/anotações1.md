@@ -104,4 +104,40 @@ console.log(eNumeroPar)
   - `==` : Igualdade, porém ignora o tipo da variável(string ou int)
   - `===` : Igualdade estrita
 - Verificamos isso com `const eNumeroPar = (numero % 2) === '0';` e a resposta no console sendo __false, já que o resultado `ìnt` não é igual a `string`__
-- 
+- Agora, __se nõs quisessemos que um texto fosse exibido quando o número fosse ou não par?__
+- Para isso, utilizaremos __a estrutura condicional `if`, ou, "se", significa que, algum evento só poderá ocorrer "se" ele for verdadeiro__
+- Verificamos isso da seguinte forma:
+
+```javascript
+if (eNumeroPar) {
+    console.log('Executei')
+}
+// No console a resposta será `true` para número par
+// e ímpar será `false`, mas não haverá a resposta
+```
+
+- __Isto está ocorrendo pois a variável `eNumeroPar` é do tipo `boolean`. Ela só é `boolean` por há a igualdade `===`__
+- Se quisermos __verificar que o número inserido foi ímpar, podemos utilizar o operador `!`, já que ele é a negação da variável, ou seja, o `false` dela__
+
+```javascript
+if (eNumeroPar) {
+    console.log('Par')
+}
+
+if (!eNumeroPar) {
+    console.log('Ímpar')
+}
+```
+
+- Dessa forma, __verificamos se o número inserido é ou não par, além de termos uma resposta de texto sobre o número inserido__
+- Porém, __é a forma mais básica. E afim de evitar a repetição de código e deixá-lo mais inteligente, usamos outro fator importante que é o `else`, ou, "se não". Dentro do nosso laço condicional, quando utilizamos o `else` estamos vendo o lado `false` da variável, ou seja, qual será a resposta caso "não for par?"__
+
+```js
+if (eNumeroPar) {
+    console.log('Par')
+} else {
+    console.log('ímpar')
+}
+```
+
+- __Se o número for par, imprima o primeiro `console`, porém, se não for, imprima o segundo `console`__
