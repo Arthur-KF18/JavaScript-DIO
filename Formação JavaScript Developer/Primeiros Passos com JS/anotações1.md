@@ -267,6 +267,40 @@ if (mediaNotas < 5) {
 - __Nõs utilizamos um operador lógico AND, representado por `&&`. Além dele temos NOT, `!`, e OR, representado por `||`__
 - Se o número __for maior que 7, sera aprovado automaticamente, então não é necessária uma outra condição ao finalizarmos a operação__
 
-2. 
+2. O IMC - índice  de Massa Corporal é um critério da OMS para dar uma indicação sobre a condição de peso de uma pessoa adulta
+
+- Fórmula do IMC: peso/(altura * altura)
+
+- Elabore um algoritmo que dado o peso e a altura de um adulto, mostre sua condiçõa de acordo com a tabela abaixo:
+- IMC em adultos condição:
+  - Abaixo de 18.5: Abaixo do peso
+  - Entre 18.5 e 25: peso normal
+  - Entre 25 e 30: 18.5: Acima do peso
+  - Entre 30 e 40: Obeso
+  - Acima de 40: Obesidade Grave
+
+```javascript
+const peso = 89;
+const altura = 1.87
+const alturaCalculada = Math.pow(altura, 2);
+
+const IMC = peso / altura;
+console.log(IMC.toFixed(2));
+
+if (IMC < 18.5) {
+    console.log('Você está abaixo do peso')
+} else if (IMC > 18.5 && IMC <= 25) {
+    console.log('Seu peso está normal')
+} else if (IMC > 25 && IMC <= 30) {
+    console.log('Você está acima do peso')
+} else if (IMC > 30 && IMC <= 40) {
+    console.log('Você está obeso')
+} else {
+    console.log('Você possui Obesidade Grave')
+}
+```
+
+- __Usando a propriedade `Math` podemos fazer operações matemáticas com javaScript, já que ela é uma biblioteca da linguagem. utilizando o método `Math.pow(x, y)`, onde `x` é nosso número, sendo ele a altura ou qualquer valor, e `y` o número pelo qual iremos fazer seu quadrado. Por exemplo, para calcularmos o quadrado de 2, usamos `Math.pow(2, 2)`, e o resultado sendo 4__
+- Também __podemos guardar variáveis dentro do método, facilitando o `input` dos valores__
 
 3. third
