@@ -465,3 +465,40 @@ function classificaImc(imc) {
 
 - __Ao invés de termos diferentes `console..log`, podemos ter apenas o `return 'mensagem'`, sendo mais simples e compacto, sem precisar de muito código, apenas as funções sendo chamadas__
 - Por fim, __podemos chamar a função `main` de forma a deixar nosso código bem organizado e mais legivél. Nosso código principal apenas irá receber os dados necessários, deixando o código mais legível e menos complexo__
+- Se __nós colocarmos `console.log(main)` a resposta no nosso teerminal será `[function: main]`. Então, funções no javaScript são valores, objetos que podemos manipular. Ou seja, a função `main` é um objeto do tipo função__
+- Estes __objetos funções se comportam como qualquer valor que inserirmos:__
+
+```javascript
+const main2 = main;
+console.log(main2)
+// Resposta no console será a mesma anterior
+```
+
+- Além disto, __podemos até mesmo invocar o `main2`__. Então as funções, depois de declaradas, __se tornam algo como um valor e nós podemos passar estes valores para outras variáveis, podemos passar uma função como parâmetro de uma função__
+
+```js
+main = function () {
+    console.log(1);
+}
+
+main();
+// resposta: 1
+```
+
+- __Ele irá ler a função `main` e irá reatribuir um valor a ela, no caso a `console.log`. No javaScript as funções são como objetos, nas quais podemos manipular como um valor, número, um texto, ou até mesmo o objeto__
+- __Quando estamos realizando uma conta matemática, se quisermos isolar um operação, para que execute primeiro, utilizamos `()`.Este parênteses irá resolver o conteúdo dentro. Podemos então inserir uma função dentro dos parênteses. Isto é o que chamamos de função imediatamente invocada, ela cria e já se executa__
+
+```javascript
+(function main() {
+    const peso = 96;
+    const altura = 1.87;
+    const imc = calculaImc(peso, altura);
+    
+    console.log(imc.toFixed(2));
+    console.log(classificaImc(imc))
+})();
+
+```
+
+- __A função precisa do `();` para ser executada. Ou seja, dizemos ao js que ele leia tudo dentro dos parênteses e execute de forma imediata. Isto vale para qualquer valor ou objeto. Podemos ta,bém tirar o nome dela, já que ela fica não nomeada, mas será executada imediatamente. Não conseguiremos chamá-la também.__'
+- Fazemos isto bastante __dentro da web para isolarmos o código dentro dela, executando uma única vez__
