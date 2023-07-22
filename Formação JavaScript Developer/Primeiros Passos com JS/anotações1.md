@@ -337,3 +337,71 @@ if (metodoPagamento === 'Debito') {
     console.log("O valor que irá pagar será de: " + juros10.toFixed(2) + "R$")
 }
 ```
+
+#### O Poder das Funções na Qualidade do seu código
+
+- __Funções são nada mais, nada menos do que trechos de codigo que podemos invocar sua execução a qualquer momento que quisermos__
+- Por exemplo, __uma função que criamos foram os laços condicionais, do `if else`__
+- Para declararmos uma função, utilizamos o `function`:
+
+```javascript
+function teste() {
+    console.log('testando minha função!')
+}
+
+teste();
+```
+
+- Nós criamos uma função chamada `teste`. Dentro dela temos uma mensagem que irá aparecer no console. Por fim,, __para invocarmos esta função, existem diferentes maneiras, mas a comum é utilizar `teste();`, já que chamamos ela, e os `()` são responsáveis por iniciá-la__
+- __Podemos chamar nossa função, quantas vezes quisermos, ela sempre irá executar com os métodos que definimos nela__
+- Porém, além disto, __toda função possui um parâmetro, que é o valor inserido no `function teste(parametro){}`__
+
+```javascript
+function sayMyName(name) {
+    console.log('Meu nome é ' + name)
+}
+
+sayMyName('Arthur');
+// No console: Meu nome é Arthur
+```
+
+- O que está ocorrendo é o seguinte: __Nós criamos uma função que possui um parâmetro, e esta função, quando for chamada e passarmos um parâmetro para ela, quando for invocada ela irá executar o `console.log` com a nossa mensagem escrita__
+- Por exemplo, __podemos criar uma função chamada de `quadrado`, e nela fazer a lógica para fazer o quadrado de um número:__
+
+```javascript
+function quadrado(valor) {
+    console.log("O quadrado do seu valor é: " + Math.pow(valor, 2))
+}
+
+quadrado(3);
+//  O quadrado do seu valor é: 9
+```
+
+-  Porém, __funções que não retornam nada, são chamadas de `procedimentos`, já que elas quando serem chamadas irão ser executadas, mas não retornam um parâmetro__
+- Porém, se nós __quisermos utilizar este `valor` para outra conta, podemos fazer da seguinte forma:__
+
+```javascript
+function quadrado(valor) {
+    return valor * valor;
+}
+
+quadrado(10);
+const quadradoDeDez = quadrado(10);
+
+console.log(quadradoDeDez);
+```
+
+- Chamamos a função, __ela nos retorna o valor através do `return` presente dentro dela. Com isto, podemos repetir essa operação diversas vezes: `console.log(quadradoDeDez + quadrado(5))`__
+- Além disto, no nosso exemplo onde precisávamos de juros podemos criar uma função própria para isto:
+
+```javascript
+function incrementaJuros(valor, percenturalJuros) {
+    const valorAcresimo = (percentualJuros/100) * valor;
+    return valor + valorAcresimo;
+}
+
+console.log(incrementaJuros(100, 10));
+```
+
+- __Passamos dois parâmentros, o `valor` e o `percentualJuros`. Criamos uma constante chamada `valorAcresimo` responsável pelo cálculo. Sabemos que para a %, é necessário dividir por 100, então fazemos `percentualJuros/100` e multiplicamos por `valor`. Com isto, iremos retornar, ou seja, a resposta da função será de `valor + valorAcresimo`. Por fim, quando inserirmos a função, `incrementaJuros(valor, percentualJuros)`, onde 100 é o valor e 10 é a %__
+- __Ou seja, a função é um pequeno trecho de código no qual podemos invocar ele e ser executado diversas vezes, de forma mais dinâmica__
