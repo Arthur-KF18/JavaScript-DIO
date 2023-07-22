@@ -419,4 +419,49 @@ main();
 ```
 
 - Agora iremos pegar nossos exercícios anteriores e refaze-los, organizando nosso código
+- Primeiro iremos criar uma função __capaz de calcular o peso e a altura__
 
+```javascript
+function calculaImc(peso, altura) {
+    const alturaCalculada = Math.pow(altura, 2)
+    return peso / alturaCalculada
+}
+```
+
+- Com esta função, __ela irá pegar os valores armazenados nas constantes `peso` e `altura`, e depois irá calcular eles quando impressa:__
+
+```javascript
+const peso = 88;
+const altura = 1.78;
+const imc = calculaImc(peso, altura);
+
+
+function calculaImc(peso, altura) {
+    const alturaCalculada = Math.pow(altura, 2)
+    return peso / alturaCalculada
+}
+
+console.log(imc);
+// 27.77 será a resposta
+```
+
+- Com isto, agora precisamos isolar as classificações em relação ao peso. Para isso, __criaremos uma função chamada `classificaImc(imc)`. Por ela receber o valor do `imc`, iremos adicionar as condições:__
+
+```javascript
+function classificaImc(imc) {
+    if (imc < 18.5) {
+        return 'Você está abaixo do peso'
+    } else if (imc > 18.5 && imc <= 25) {
+        return 'Seu peso está normal'
+    } else if (imc > 25 && imc <= 30) {
+        return 'Você está acima do peso'
+    } else if (imc > 30 && imc <= 40) {
+        return 'Você está obeso'
+    } else {
+        return 'Você possui Obesidade Grave'
+    }
+}
+```
+
+- __Ao invés de termos diferentes `console..log`, podemos ter apenas o `return 'mensagem'`, sendo mais simples e compacto, sem precisar de muito código, apenas as funções sendo chamadas__
+- Por fim, __podemos chamar a função `main` de forma a deixar nosso código bem organizado e mais legivél. Nosso código principal apenas irá receber os dados necessários, deixando o código mais legível e menos complexo__
