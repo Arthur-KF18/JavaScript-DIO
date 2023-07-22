@@ -20,3 +20,8 @@ sayMyName('Arthur');
 const quadradoDeDez = quadrado(10)
 console.log(quadradoDeDez + quadrado(5))
 console.log(incrementaJuros(37.90, 15));
+
+function main() {
+    console.log('Programa principal')
+}
+main();

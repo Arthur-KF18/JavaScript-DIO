@@ -405,3 +405,18 @@ console.log(incrementaJuros(100, 10));
 
 - __Passamos dois parâmentros, o `valor` e o `percentualJuros`. Criamos uma constante chamada `valorAcresimo` responsável pelo cálculo. Sabemos que para a %, é necessário dividir por 100, então fazemos `percentualJuros/100` e multiplicamos por `valor`. Com isto, iremos retornar, ou seja, a resposta da função será de `valor + valorAcresimo`. Por fim, quando inserirmos a função, `incrementaJuros(valor, percentualJuros)`, onde 100 é o valor e 10 é a %__
 - __Ou seja, a função é um pequeno trecho de código no qual podemos invocar ele e ser executado diversas vezes, de forma mais dinâmica__
+
+#### Como organizar funções
+
+- __Nosso código principal sempre estará dentro de uma função, e ela se chamará `main`, nossa função principal. Quando pedimos para executar, o `node.js` irá ver linha por linha. Quando ele chegar na função, ele irá processar o código dentro dele. Isto se torna uma variável, na qual consguimos invocá-la__
+- Fora do nosso `main`, __serão criadas apenas as funções necessárias. E nós iremos utilizar dentro da nossa função principal as funções auxiliares que foram declaradas fora do escopo `main`__
+
+```js
+function main() {
+    console.log('Programa principal')
+}
+main();
+```
+
+- Agora iremos pegar nossos exercícios anteriores e refaze-los, organizando nosso código
+
