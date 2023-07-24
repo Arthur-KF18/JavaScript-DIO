@@ -11,13 +11,13 @@ function aplicaJuros(valor, juros) {
 function metodoPagamento(tipoDePagamento) {
 
     if (tipoDePagamento === 1) {
-        console.log("Debito : " + aplicaDesconto(valorEtiqueta, 10).toFixed(2));
+        console.log(`Debito : ${aplicaDesconto(valorEtiqueta, 10).toFixed(2)}`);
     } else if (tipoDePagamento === 2) {
-        console.log("Dinheiro ou Pix: " + aplicaDesconto(valorEtiqueta, 15).toFixed(2));
+        console.log(`Dinheiro ou Pix : ${aplicaDesconto(valorEtiqueta, 15).toFixed(2)}`);
     } else if (tipoDePagamento === 3) {
-        console.log("Crédito em duas vezes: " + valorEtiqueta.toFixed(2))
+        console.log(`Crédito em duas vezes: ${valorEtiqueta.toFixed(2)}`)
     } else {
-        console.log("Crédito em mais vezes: " + aplicaJuros(valorEtiqueta, 10).toFixed(2))
+        console.log(`Crédito em mais vezes: ${aplicaJuros(valorEtiqueta, 10).toFixed(2)}`)
     }
 }
 

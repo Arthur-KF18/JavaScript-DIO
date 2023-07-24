@@ -604,3 +604,48 @@ metodoPagamento(4);
 - Faremos o mesmo para o juros, e que estará tendo sua própria função.
 - Ao escolhermos um método de pagamento, __ele irá atender as condições__
 - __Nossa missão ao criar as funções é simplificar o uso, tornando-o mais humano e tranquilo de ser utilizado__
+
+#### Entendendo Objetos
+
+- Agora que já entendemos bem sobre funções, e o quanto elas são importantes para nós durante a criação e organização dos nossos códigos. Precisamos entender um __conceito muito importante no javaScript: Seus Objetos__
+- Por exemplo, o `console` é __um objeto, onde ele é uma variável com diferentes funções, estes sendo os métodos do objeto. Quando estavámos criando variáveis, estavámos atribuindo valores literais. Porém, também podemos atribuir um objeto `const variavel = {}`.__
+- Temos que entender que __o objeto é uma coleção de valores, ele funciona com chave valores, ou, `{valores}`. Por exemplo:__
+
+```javascript
+const arthur = {
+    nome: 'Arthur K',
+    idade: '20'
+};
+```
+
+- Vemos então que __`arthur` tem uma coleção de dados, onde temos `nome` e `idade`. Esta é a sintaxe do objeto literal. Em resumo:__
+
+```javascript
+const variavel {
+    chave: valor,
+    chave:"valor"
+};
+```
+
+- __É importante lembrar que é necessário a vírgula para separar asa chaves. para nós podermos acessar o valor dentro do nosso objeto `variavel`, iremos utilizar o `variavel.chave`. O ponto é para podermos entrar no objeto e acessar a chave que criamos__
+
+```javascript
+const aluno = {
+    nome: 'Arthur',
+    idade: 20
+};
+
+console.log(aluno.nome)
+// no console: Arthur
+```
+
+- Se nós imprimirmos `console.log(aluno)`, ele nos retorna: `{ nome: 'Arthur', idade: 20 }`. __Quando pedimos a impressão do nosso objeto, ele nos retorna a coleção de valores, uma lista de itens__
+- __Agora que definimos um objeto literal, podemos incrementá-lo dinâmicamente. Por exemplo:__
+
+```javascript
+aluno.altura = 1.90;
+console.log(aluno);
+// { nome: 'Arthur', idade: 20, altura: 1.90 }
+```
+
+- __Um objeto no javascript é uma coleção dinâmica de chaves valor.__ Nós também podemos __deletar um dos itens através do `delete variavel.valor`__
