@@ -502,3 +502,19 @@ main();
 
 - __A função precisa do `();` para ser executada. Ou seja, dizemos ao js que ele leia tudo dentro dos parênteses e execute de forma imediata. Isto vale para qualquer valor ou objeto. Podemos ta,bém tirar o nome dela, já que ela fica não nomeada, mas será executada imediatamente. Não conseguiremos chamá-la também.__'
 - Fazemos isto bastante __dentro da web para isolarmos o código dentro dela, executando uma única vez__
+
+#### Exercícios práticos de funções
+
+- Quando iremos __nomear uma função, já que ela é executável, nós geralmente inserimos um verbo. Por exemplo `escrevaMeuNome`__:
+
+```javascript
+function escreveNome(nome) {
+    console.log(`meu nome é ${nome}`);
+    // console.log('Meu nome é' + nome);
+}
+
+escreveNome('Arthur');
+```
+
+- No exercício, temos um detalhe importante. __Ao chamarmos a função, precisamos que o parâmetro dela seja `string` para que o ocorra a impressão do nome. No curso, é utilizada a concatenção. Mas utilizar o `stringfy` neste caso também resolve o exercício__
+- Resumindo: __Criamos uma função que recebe um parâmetro `nome`. Para este parâmetro colocamos o `console.log`, que ao ser chamado irá exibir o seu parâmetro.__
