@@ -1,8 +1,12 @@
 const aluno = {
     nome: 'Arthur',
-    idade: 20
-};
+    idade: 20,
 
-console.log(aluno.nome)
-console.log(aluno.idade)
-console.log(aluno)
+    descrever: function () {
+        console.log(`Meu nome é ${this.nome} e minha idade é ${this.idade}`);
+    }
+};
+aluno.descrever();
+
+const atributo = 'idade';
+console.log(aluno[atributo]);

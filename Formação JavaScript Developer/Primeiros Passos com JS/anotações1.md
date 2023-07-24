@@ -649,3 +649,56 @@ console.log(aluno);
 ```
 
 - __Um objeto no javascript é uma coleção dinâmica de chaves valor.__ Nós também podemos __deletar um dos itens através do `delete variavel.valor`__
+- __Um dos fatores mais interessantes do javaScript, é que nós podemos utilizar funções em nossos objetos. Chamamos isto de método.__
+- por exemplo:
+
+```javascript
+ descrever: function () {
+        console.log(`Meu nome é ${} e minha idade é ${}`);
+    }
+```
+
+- __No nosso objeto `aluno`, estamos utilizando uma chave `descrever` e dentro dela temos uma função. Para que nós possamos pegar as chaves `nome` e `idade`, dentro de nossa função temos uma palavra reservada chamada `this`. O `this` diz respeito a um contexto de aonde ela está sendo utilizada. Como nossa função está dentro de um objeto, o `this` assume um objeto__
+
+```javascript
+ descrever: function () {
+        console.log(`Meu nome é ${this.nome} e minha idade é ${this.idade}`);
+    }
+```
+
+- Vale lembrar que, __o uso da crase é o que chamamos de template string, onde podemos acessar valores através do uso da crase. Para acessarmos então a esta função, utilizamos:__
+
+```javascript
+aluno.descrever();
+// Meu nome é Arthur e minha idade é 20
+```
+
+- __É importante lembrar que: Se nós inserirmos um novo nome ou idade nas próximas linhas, a impressão será feita dos novos dados atualizados__
+
+```javascript
+aluno.nome = 'Renan';
+aluno.idade = 25;
+
+aluno.descrever();
+// Meu nome é Renan e minha idade é 25
+```
+
+- __Em resumo, um objeto é uma estrutura dinâmica de chave valor, na qual podemos adicionar funções às minhas chaves, já que funções também são objetos. Nós também podemos atualizar estas funções__
+
+```javascript
+aluno.descrever = function () {
+    console.log(`Meu nome é ${this.nome}`)
+}
+//  o `this.nome` também tem acesso às chaves
+```
+
+- Nós podemos acessar estes valores __através de uma sintaxe mais dinâmica. Podemos fazer isto declarando uma variável que receba um valor exatamente igual ao de dentro do nosso objeto. Assim, quando formos chamar apenas a chave que queremos, usamos `objeto[variavel]`, ficando praticamente assim:__
+
+```javascript
+const atributo = 'idade';
+console.log(aluno[atributo])
+// No console: 20
+```
+
+- __vale lembrar que quando declararmos o valor, ele deve ser uma string ou numeral. Através de uma string conseguimos acessar dinamicamente o atributo. E nós também podemos reatribuir valores: `atributo['nome'] = carlos`. Uma diferença entre ambas declarações, é que `pessoa.nome` precisamos saber exatamente o nome, enquanto `pessoa['nome']` não precisamos, pois é um texto que pode ser recebido como parâmetro__
+- 
