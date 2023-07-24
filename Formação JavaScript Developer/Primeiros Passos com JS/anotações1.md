@@ -518,3 +518,89 @@ escreveNome('Arthur');
 
 - No exercício, temos um detalhe importante. __Ao chamarmos a função, precisamos que o parâmetro dela seja `string` para que o ocorra a impressão do nome. No curso, é utilizada a concatenção. Mas utilizar o `stringfy` neste caso também resolve o exercício__
 - Resumindo: __Criamos uma função que recebe um parâmetro `nome`. Para este parâmetro colocamos o `console.log`, que ao ser chamado irá exibir o seu parâmetro.__
+- Um outro simples exercício é verificar a idade:
+
+```javascript
+function verificaIdade(idade) {
+    if (idade < 18) {
+        console.log('Você é menor de idade')
+    } else {
+        console.log('Você é maior de idade')
+    }
+}
+
+verificaIdade(21);
+// Você é ,maior de idade
+verificaIdade(17);
+// Você é menor de idade
+```
+
+- __Uma função é um pequeno "programinha", onde temos um código e podemos invocá-lo a qualquer momento que quisermos. Nós utilizamos um algoritmo, e ele está encapsulado dentro de uma função semântica__
+- Por exemplo, __sabemos que quando criamos funções, elas são como objetos. Estes objetos são variáveis e podem ser utilizados de diferentes maneiras. Agora, como podemos inserir uma função dentro de uma outra função?__
+- Primeiro, vamos tentar o código abaixo:
+
+```javascript
+function escreveNome(nome) {
+    console.log('meu nome é ' + nome);
+}
+
+function verificaIdade(idade) {
+    if (idade < 18) {
+        console.log(escreveNome('Arthur') + 'Você é menor de idade')
+    } else {
+        console.log(escreveNome('Arthur') + ' Você é maior de idade')
+    }
+}
+
+verificaIdade(17);
+```
+
+- A resposta deste __`console.log` será `undefinedVocê é menor de idade`. Por que isto ocorre? Por que na função acima `escreveNome` não foi retornado nenhum valor. E na `verificaIdade` estamos usando-a como se fosse um texto.__
+- Para fazermos isto, iremos:
+
+```javascript
+function escreveNome(nome) {
+    return nome
+}
+```
+
+- __Assim estaremos retornando um texto, e a função `èscreveNome('nome')` irá funcionar corretamente e no console a resposta será: `Arthur Você é menor de idade`__
+- A função do `return` __é de podemos reutilizar os valores que uma função irá criar, sejam textos ou números. até mesmo funções__
+- Agora iremos voltar nos exercícios anteriores e utilizar funções para resolvê-los
+- Iremos voltar nos métodos de pagamento, e iremos realizar __as funções para poder ter o método do pagamento, e aplicar tanto desconto ou juros__:
+
+```javascript
+const valorEtiqueta = 35.00;
+
+function aplicaDesconto(valor, desconto) {
+    return (valor - (valor * (desconto / 100)));
+}
+
+function aplicaJuros(valor, juros) {
+    return (valor + (valor * (juros / 100)))
+}
+
+function metodoPagamento(tipoDePagamento) {
+
+    if (tipoDePagamento === 1) {
+        console.log("Debito : " + aplicaDesconto(valorEtiqueta, 10).toFixed(2));
+    } else if (tipoDePagamento === 2) {
+        console.log("Dinheiro ou Pix: " + aplicaDesconto(valorEtiqueta, 15).toFixed(2));
+    } else if (tipoDePagamento === 3) {
+        console.log("Crédito em duas vezes: " + valorEtiqueta.toFixed(2))
+    } else {
+        console.log("Crédito em mais vezes: " + aplicaJuros(valorEtiqueta, 10).toFixed(2))
+    }
+}
+
+metodoPagamento(1);
+metodoPagamento(2);
+metodoPagamento(3);
+metodoPagamento(4);
+```
+
+- __O que está ocorrendo é que: Teremos uma função `aplicaDesconto`, na qual irá retornar um valor e desconto já calculados. Para isso, iremos utilizar o `return` para que possamos utilizar esta função em outra parte do código__
+- Por termos utilizado `aplicaDesconto(valor, desconto)`, __colocamos ela dentro de uma condição. e dentro desta condição, inserimos o `valorEtiqueta` com o desconto. O `valorEtiqueta` estará no lugar do `valor`, já que é uma constante. Sendo assim, iremos inserir os descontos desta forma: `aplicaDesconto(valorEtiqueta, 10)`, onde estará sendo aplicado 10% de desconto(`(desconto / 100)`)__
+- Faremos o mesmo para o juros, e que estará tendo sua própria função.
+- Ao escolhermos um método de pagamento, __ele irá atender as condições__
+- __Nossa missão ao criar as funções é simplificar o uso, tornando-o mais humano e tranquilo de ser utilizado__
