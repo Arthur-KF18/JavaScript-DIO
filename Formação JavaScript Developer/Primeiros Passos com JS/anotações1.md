@@ -771,3 +771,72 @@ paciente1.altura = 1.75;
 ```
 
 - __Dizemos então que é uma Orientação a Objetos, na qual funciona corretamente pois classes são definições, objetos definidos, e utilizamos elas para nossas instâncias, ocorrências do nosso objeto, que seguirão o padrão definido em nossas classes.__
+- Nós sabemos que temos nossas chaves, e vamos colocar que __é obrigatório que para existir uma pessoa, precisa tem nome e idade. Para isso utilizaremos o método `constructor`.__
+  - __Este método é o que ocorre quando uma classe é instânciada__:
+
+```javascript
+    constructor() {
+        this.nome = 'Arthur';
+        this.idade = 20;
+    }
+```
+
+- __Quando uma pessoa for instânciada, `const arthur = new Pessoa()`, e for chamada através do `arthur.descrever`, a resposta no console será `Meu nome é Arthur e minha idade é 20`__. Isto ocorre pois __toda vez que uma pessoa for instânciada, ela sempre passará pelo construtor. E também, nosso `constructor` pode receber parâmetros__
+
+
+```js
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+```
+
+- __Passando os parâmetros, dizemos que quando uma pessoa for instânciada, ela obrigatóriamente precisa inserir seu nome e idade, para que não exista erros, `Meu nome é undefined e minha idade é undefined`__
+- também podemos saber o ano de nascimento desta pessoa, por exemplo:
+
+```js
+    nome;
+    idade;
+    anoDeNascimento;
+
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.anoDeNascimento = 2023 - idade
+    }
+
+const arthur = new Pessoa('Arthur', 21);
+arthur.descrever();
+// Pessoa { nome: 'Arthur', idade: 21, anoDeNascimento: 2002 }
+```
+
+- __Quando trabalhamos com construtores, podemos preparar as variáveis, de forma a realizar os cálculos e funções que necessitamos__
+- Também podemos inserir a resposta do nosso atributo: `console.log(Meu nome é ${this.nome}, minha idade é ${this.idade} e meu ano de nascimento é ${this.anoDeNascimento});`.
+- __A orientação à objetos são definições a objetos, contratos de como deve ser um objeto e instâncias seguindo estes contratos, ocorrendo as novas instâncias das classes__
+- Utilizando construtor no exemplo passado:
+
+```js
+class pessoaAtendida {
+    peso;
+    altura;
+    calculo;
+
+    constructor(peso, altura){
+        this.peso = peso;
+        this.altura = altura * altura;
+        this.calculo = this.peso / this.altura
+    }
+
+    imc(){
+        console.log(`Seu IMC é ${this.calculo}`);
+    }
+}
+
+const paciente1 = new pessoaAtendida(89, 1.87);
+const paciente2 = new pessoaAtendida(87, 1.67);
+
+paciente1.imc();
+paciente2.imc();
+// Seu IMC é 25.45111384369012
+// Seu IMC é 31.1950948402596
+```
