@@ -701,4 +701,73 @@ console.log(aluno[atributo])
 ```
 
 - __vale lembrar que quando declararmos o valor, ele deve ser uma string ou numeral. Através de uma string conseguimos acessar dinamicamente o atributo. E nós também podemos reatribuir valores: `atributo['nome'] = carlos`. Uma diferença entre ambas declarações, é que `pessoa.nome` precisamos saber exatamente o nome, enquanto `pessoa['nome']` não precisamos, pois é um texto que pode ser recebido como parâmetro__
-- 
+
+
+#### Entendendo Classes
+
+- Sabendo de objetos e como eles são criados, além de que podemos utilizar diferentes métodos para eles, __nosso objeto `aluno` tem um detalhe importante: Como adicionar mais de um aluno diferente?__
+- Uma primeira opção seria repetindo o código, e só mudando os valores e chaves, __porém isto levaria a uma repetição de código. Não estaríamos fazendo um modelo do nosso objeto, só seriam objetos literais. Para que nós possamos dinamizar a criação de outros objetos, utilizaremos `classes`__
+- Como nós estamos __definindo um modelo de pessoa, podemos criar uma classe chamada `Pessoa`. Esta classe tem como responsabilidade definir como são pessoas para que possam ser instânciadas__
+
+```javascript
+class Pessoa {
+    nome;
+    idade;
+
+    descrever() {
+        console.log(`Meu nome é ${this.nome} e minha idade é ${this.idade}`);
+    }
+}
+```
+
+- __Importante lembrar que, quando formos declarar um método como `function`, não é necessário declarar ele__ 
+- Com a estrutura montada, __a instância da `class Pessoa` é o `aluno`. `Pessoa` é uma classe que descreve como uma pessoa deve ser.__
+- __Classe é uma definição do que deveria ser e uma instância é uma ocorrência da uma classe. Por exemplo, a definição de carro é que ele tem uma cor e o ano, e um carro branco de 2017 é uma instância de carro__
+- Para nós definirmos uma nova pessoa, utilizamos o `const nomeDaPessoa = new Pessoa()` Ao imprimirmos no console `console.log(nomeDaPessoa)`, ele retorna `Pessoa {nome: undefined, idade: undefined}`, ou seja, __retornando a classe e o objeto__
+- Com isto, devemos __atribuir tanto o nome quanto a idade para esta pessoa:__
+
+```javascript
+const nomeDaPessoa = new Pessoa();
+nomeDaPessoa.nome = 'Arthur K';
+nomeDaPessoa.idade = 20;
+
+console.log(nomeDaPessoa)
+// Pessoa { nome: 'Arthur K', idade: 20 }
+```
+
+- Quando adicionarmos outra pessoa, irá ter o mesmo resultado. __A `class` definiu a maneira como as pessoas devem ser, e as instâncias é uma ocorrência de uma pessoa, `nomeDaPessoa.nome`__
+
+```js
+const nomeDaPessoa = new Pessoa();
+nomeDaPessoa.nome = 'Arthur K';
+nomeDaPessoa.idade = 20;
+
+console.log(nomeDaPessoa);
+nomeDaPessoa.descrever();
+// Meu nome é Arthur K e minha idade é 20
+```
+
+- __O `console.log` que definimos na nossa classe pode ser apenas chamado através do `.descrever()`, nossa função. Em resumo, isto ocorre pois definimos que `nomeDaPessoa` é uma nova `Pessoa()`__
+- Foi dado o exemplo sobre o cálculo de IMC durante a aula, e foi feito um pequeno exercício prático pessoal:
+
+```javascript
+class pessoaAtendida {
+    nome;
+    idade;
+    peso;
+    altura;
+
+    imc(){
+        console.log(`Seu IMC é ${this.peso / (this.altura * this.altura)}`);
+    }
+}
+
+const paciente1 = new pessoaAtendida();
+paciente1.nome = 'Bruno Moreira'
+paciente1.idade = 22;
+paciente1.peso = 70;
+paciente1.altura = 1.75;
+// Seu IMC é 22.85714285714285
+```
+
+- __Dizemos então que é uma Orientação a Objetos, na qual funciona corretamente pois classes são definições, objetos definidos, e utilizamos elas para nossas instâncias, ocorrências do nosso objeto, que seguirão o padrão definido em nossas classes.__
