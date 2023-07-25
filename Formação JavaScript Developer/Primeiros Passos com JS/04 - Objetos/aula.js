@@ -14,11 +14,24 @@ class Pessoa {
     }
 }
 
-const arthur = new Pessoa('Arthur', 21);
-const carlos = new Pessoa('carlos', 20);
+function comparaPessoa(p1, p2) {
+    if (p1.idade > p2.idade) {
+        console.log(`${p1.nome} é mais velha que ${p2.nome}`)
+    } else if(p2.idade > p1.idade) {
+        console.log(`${p2.nome} é mais velha que ${p1.nome}`)
+    } else {
+        console.log(`${p1.nome} e ${p2.nome} tem a mesma idade!`)
+    }
+}
+
+const arthur = new Pessoa('Arthur', 20);
+const samara = new Pessoa('samara', 19);
 
 arthur.descrever();
-carlos.descrever();
+samara.descrever();
+comparaPessoa(arthur, samara);
+
+
 
 class pessoaAtendida {
     peso;
@@ -36,8 +49,26 @@ class pessoaAtendida {
     }
 }
 
-const paciente1 = new pessoaAtendida(89, 1.87);
-const paciente2 = new pessoaAtendida(87, 1.67);
+function tipoImc(valor) {
+    if (valor.calculo < 18.5) {
+        console.log(`magreza`)
+    } else if (valor.calculo > 18.5 && valor.calculo < 24.9) {
+        console.log(`peso normal`)
+    }  else if (valor.calculo > 25 && valor.calculo < 29.9) {
+        console.log(`Sobrepeso`)
+    }  else if (valor.calculo > 29.9 && valor.calculo < 34.9) {
+        console.log(`Obesidade grau I`)
+    } else if (valor.calculo > 35 && valor.calculo < 39.9) {
+        console.log(`Obesidade Grau II`)
+    } else {
+        console.log(`Obesidade Grave`)
+    }
+}
+
+const paciente1 = new pessoaAtendida(87, 1.87);
+const paciente2 = new pessoaAtendida(87, 1.70);
 
 paciente1.imc();
+tipoImc(paciente1);
 paciente2.imc();
+tipoImc(paciente2);
