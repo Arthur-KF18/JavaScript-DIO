@@ -377,7 +377,7 @@ quadrado(3);
 //  O quadrado do seu valor é: 9
 ```
 
--  Porém, __funções que não retornam nada, são chamadas de `procedimentos`, já que elas quando serem chamadas irão ser executadas, mas não retornam um parâmetro__
+- Porém, __funções que não retornam nada, são chamadas de `procedimentos`, já que elas quando serem chamadas irão ser executadas, mas não retornam um parâmetro__
 - Porém, se nós __quisermos utilizar este `valor` para outra conta, podemos fazer da seguinte forma:__
 
 ```javascript
@@ -702,7 +702,6 @@ console.log(aluno[atributo])
 
 - __vale lembrar que quando declararmos o valor, ele deve ser uma string ou numeral. Através de uma string conseguimos acessar dinamicamente o atributo. E nós também podemos reatribuir valores: `atributo['nome'] = carlos`. Uma diferença entre ambas declarações, é que `pessoa.nome` precisamos saber exatamente o nome, enquanto `pessoa['nome']` não precisamos, pois é um texto que pode ser recebido como parâmetro__
 
-
 #### Entendendo Classes
 
 - Sabendo de objetos e como eles são criados, além de que podemos utilizar diferentes métodos para eles, __nosso objeto `aluno` tem um detalhe importante: Como adicionar mais de um aluno diferente?__
@@ -720,7 +719,7 @@ class Pessoa {
 }
 ```
 
-- __Importante lembrar que, quando formos declarar um método como `function`, não é necessário declarar ele__ 
+- __Importante lembrar que, quando formos declarar um método como `function`, não é necessário declarar ele__
 - Com a estrutura montada, __a instância da `class Pessoa` é o `aluno`. `Pessoa` é uma classe que descreve como uma pessoa deve ser.__
 - __Classe é uma definição do que deveria ser e uma instância é uma ocorrência da uma classe. Por exemplo, a definição de carro é que ele tem uma cor e o ano, e um carro branco de 2017 é uma instância de carro__
 - Para nós definirmos uma nova pessoa, utilizamos o `const nomeDaPessoa = new Pessoa()` Ao imprimirmos no console `console.log(nomeDaPessoa)`, ele retorna `Pessoa {nome: undefined, idade: undefined}`, ou seja, __retornando a classe e o objeto__
@@ -782,7 +781,6 @@ paciente1.altura = 1.75;
 ```
 
 - __Quando uma pessoa for instânciada, `const arthur = new Pessoa()`, e for chamada através do `arthur.descrever`, a resposta no console será `Meu nome é Arthur e minha idade é 20`__. Isto ocorre pois __toda vez que uma pessoa for instânciada, ela sempre passará pelo construtor. E também, nosso `constructor` pode receber parâmetros__
-
 
 ```js
     constructor(nome, idade) {
@@ -891,3 +889,88 @@ tipoImc(paciente1);
 ```
 
 - __O que está ocorrendo é que: iremos acessar o valor do nosso objeto passado. Dentro da `paciente1`, passamos os parâmetros para o construtor da nossa classe. Com os valores guardados, usamos o `calculo` pois ele é um atributo responsável por realizar o cálculo do imc. Para podermos comparar o imc e verificar o tipo da pessoa, utilizamos o `.calculo`. Desta forma, é impresso o tipo do IMC dependendo dos atributos inseridos na `pessoaAtendida`__
+
+#### Praticando com Objetos e Classes
+
+1. Crie uma classe para representar carros:
+
+- Os carros possuem uma marca, uma cor e um gasto médio de combustível por Kilômetro rodado. Crie um método que dado a quantidade de quilometros e o preço de combustível nos dê o valor gasto em reais para realizar este percurso
+
+```javascript
+class Carros {
+    marca;
+    cor;
+    gastoMedio;
+
+    constructor(marca, cor, gastoMedio) {
+        this.marca = marca;
+        this.cor = cor;
+        this.gastoMedio = gastoMedio;        
+    }
+
+    percurso(distanciaKm, precoCombustivel) {
+        return ((distanciaKm * this.gastoMedio) * precoCombustivel).toFixed(2)
+    }
+}
+
+const carro = new Carros('Chevrolet', 'Vermelho', 1/12);
+const carroCalculado = carro.percurso(100, 5.63);
+console.log(carroCalculado);
+
+const palio = new Carros('Fiat', 'Preto', 1/10);
+console.log(palio.percurso(300, 5.63))
+```
+
+- __As variáveis dentro de uma classe ou objeto, chamamos de atributos__
+- O que ocorreu foi: __Criamos uma classe `Carros`, onde recebe a marca, cor e gasto médio por KM. Com isto, criamos o método `percurso`, que irá receber os atributos de distancia em KM e preço do combustível. Ele irá retornar o cálculo da distância pelo `this.gastoMedio`, multiplicada pelo preço do combustível.__
+- Este método __está esperando os valores serem inseridos ao ser declarado para que possa ser cálculado__
+- Em resumo: __Temos uma classe `Carros`, na qual irá receber os valores e que o `percurso` terá uma gasto de acordo com a quantidade de kilometros e o preço da gasolina__
+- Através disto, criamos um programa __orientado a objetos, que quando um novo carro é criado, fazemos apenas a adição dos requisitos para que o problema seja resolvido__
+
+2. Crie uma classe para representar pessoas.
+
+```js
+class pessoaAtendida {
+    nome;
+    peso;
+    altura;
+    calculo;
+
+    constructor(nome, peso, altura){
+        this.peso = peso;
+        this.altura = altura * altura;
+        this.calculo = this.peso / this.altura;
+        this.nome = nome;
+    }
+
+    imc(){
+        console.log(`Olá ${this.nome}, seu IMC é ${this.calculo}`);
+    }
+}
+
+function tipoImc(valor) {
+    if (valor.calculo < 18.5) {
+        console.log(`magreza`)
+    } else if (valor.calculo > 18.5 && valor.calculo < 24.9) {
+        console.log(`peso normal`)
+    }  else if (valor.calculo > 25 && valor.calculo < 29.9) {
+        console.log(`Sobrepeso`)
+    }  else if (valor.calculo > 29.9 && valor.calculo < 34.9) {
+        console.log(`Obesidade grau I`)
+    } else if (valor.calculo > 35 && valor.calculo < 39.9) {
+        console.log(`Obesidade Grau II`)
+    } else {
+        console.log(`Obesidade Grave`)
+    }
+}
+
+const paciente1 = new pessoaAtendida('Arthur', 87, 1.87);
+const paciente2 = new pessoaAtendida('Jose', 70, 1.75);
+
+paciente1.imc();
+tipoImc(paciente1);
+paciente2.imc();
+tipoImc(paciente2);
+```
+
+- Através da classe e da função, é possível saber o imc e qual o tipo dele. Com isto, podemos entender um pouco de como a orientação à objetos funciona em javaScript 

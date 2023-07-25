@@ -34,18 +34,20 @@ comparaPessoa(arthur, samara);
 
 
 class pessoaAtendida {
+    nome;
     peso;
     altura;
     calculo;
 
-    constructor(peso, altura){
+    constructor(nome, peso, altura){
         this.peso = peso;
         this.altura = altura * altura;
-        this.calculo = this.peso / this.altura
+        this.calculo = this.peso / this.altura;
+        this.nome = nome;
     }
 
     imc(){
-        console.log(`Seu IMC é ${this.calculo}`);
+        console.log(`Olá ${this.nome}, seu IMC é ${this.calculo}`);
     }
 }
 
@@ -65,8 +67,8 @@ function tipoImc(valor) {
     }
 }
 
-const paciente1 = new pessoaAtendida(87, 1.87);
-const paciente2 = new pessoaAtendida(87, 1.70);
+const paciente1 = new pessoaAtendida('Arthur', 87, 1.87);
+const paciente2 = new pessoaAtendida('Jose', 70, 1.75);
 
 paciente1.imc();
 tipoImc(paciente1);
