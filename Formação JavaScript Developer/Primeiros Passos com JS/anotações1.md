@@ -1062,7 +1062,6 @@ console.log(notas.length)
 
 - __Sabemos que para realizar a média, necessitamos somar tudo e dividir pela quantidade de notas. Nossa lista está sendo dinâmica, e para sabermos o tamanho da nossa lista, podemos utilizar o método `lenght()`. No nosso caso, saberemos que possuímos 5 itens na nossa lista__
 - Para podermos realizar a soma, __temos de saber percorrer posição à posição da nossa lista__
-- Temos duas maneiras de fazer:
 
 ```js
 // Muito verbosa e dificíl de entender
@@ -1075,3 +1074,105 @@ console.log(soma1/5);
 
 - __O maior problema desta forma, é que temos que saber os números exatos de quantidade de notas para poder realizar o cálculo, sendo muito verbosa e difícil de entender__
 - ___O que nós precisamos aprender são estruturas de repetição, que vão percorrer a lista, pegando os valores e somando-os. Existem várias estruturas de repetição, assim como as condicionais que já vimos__
+
+#### Entendendo Estruturas de repetição
+
+- Notamos que, __quando escrevemos daquela forma, repetimos a seleção de cada item para que seja somado. Colocando uma estrutura própria, ficaria muito mais fácil de realizar o cálculo__
+- Utilizaremos a __estrutura `for`. O `for`, ou, `para`, é uma estrutura que irá percorrer nosso array:__
+
+```javascript
+for (let index = 0; index < array.length; index++) {
+    // ...
+}
+```
+
+- __O `for` funciona especificamente para percorrer uma quantidade de vezes. `let index = 0` é responsável por controlar em qual vez estamos no nosso loop, nossa iteração. Também normalmente utilizamos `let i = 0`, para identificar mais facilmente. Praticamente, o valor inicial de iremos começar, além de geralmente utilizar 0 pois estamos iterando uma lista que começa na posição 0__
+- __`index < array.length`: Estrutura condicional que retorna um booleano, que vai dizer se entra ou não no nosso `for`. Por exemplo: `i < 10`, enquanto 1 for menor que 10, estará dentro do loop__
+- __`index++`: O que irá acontecer depois de executar o `for`. Normalmente, utilizamos `i++`, para dizer que irá para a próxima variável que será analisada__
+- Em resumo:
+
+```javascript
+for (let i = 0, i < 10, i++){
+    // ...
+}
+
+// mesma coisa que:
+let i = 1;
+i = i + 1;
+```
+
+- __A partir do primeiro item, enquanto `i` for menor que 10, execute o código abaixo, sempre adicionando mais 1 ao nosso `i` para verificarmos todos os valores. Ele irá executar enquanto a condição for atendida, quando não estiver mais correta, retorna `false`__
+
+```js
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+// 0 1 2 3 4 5 6 7 8 9
+
+for (let i = 0; i < notas.length; i++) {
+    console.log(i);
+}
+// 0 1 2 3 4
+```
+
+- __Ao usarmos com nossas notas, vemos que enquanto i for menor ao tamanho delas, será impresso a quantidade de itens e o número de cada__
+- Sabendo que podemos utilizar em números, __para `Strings` é diferente, mas também possível de verificar quantos caracteres temos:__
+
+```js
+const nome = 'Ronaldo dos Santos';
+for (let i = 0; i < nome.length; i++) {
+console.log(i)
+}
+// 0 1 2 3 4 5 6... 17
+```
+
+- __Como queremos visualizar a quantidade de letras, utilizamos o `nome.length`. Diferente dos números, as strings são um array de caracteres. A sintaxe colocada, transforma a frase em um array de caracteres__
+- Para visualizarmos isto:
+
+```js
+const nome = 'Ronaldo dos Santos';
+for (let i = 0; i < nome.length; i++) {
+console.log(nome[i])
+}
+// R o n a l d o  d o s s a n t o s
+```
+
+- No console será impresso __cada caractere, por que estamos pegando a posição de cada letra, através da mesma notação da lista, o `nome[i]`, `nome` na posição `i`, e isto funciona justamente pela string ser um array de caracteres. Ela é uma lista especial, com métodos próprios, que podem ser modificados e até mesmo adicionados__
+- Lembrando do código no autocomplete, ficaria assim:
+
+```js
+for (let i = 0; i < nome.length; i++) {
+    const letra = nome[i];
+    console.log(letra)
+}
+```
+
+- Assim, __podemos verificar todas as letras e imprimí-las. Em resumo, o `nome[i]`, está dizendo que, na variável nome, onde temos nossa string, verifique a quantidade de caracteres, e selecione as letras e não a quantidade de itens__
+- Agora podemos aplicar estes conceitos no nosso cálculo de média:
+
+```js
+const notas = [];
+notas.push(5, 7, 8, 2, 5, 6);
+
+let soma = 0;
+
+for (let i = 0; i < notas.length; i++) {
+    const nota = notas[i];
+    soma = soma + nota;
+}
+
+const mediaNotas = soma / notas.length;
+console.log(mediaNotas);
+```
+
+- O que ocorre é: __com o array, iremos selecionar cada item dele através do `notas[i]`, com isto, criaremos uma variável mutável `let soma = 0`, que irá dizer que vem do inicío, e por fim, iremos inserir no nosso laço a atribuição da soma com `soma = soma + nota`. Por fim, teremos a impressão da nota, e dividir pela quantidade de itens do array, na variável `mediaNotas`__
+
+#### Como Depurar nosso código
+
+- Conforme aprendemos novas coisas, mais desafios vão existindo, assim como a complexidade de casos quando avançamos. Porém, o mais seguro a se fazer é __depurar o código__, verificando se __foi feito algo errado, se a execução dele está correta ou não.__
+- Naturalmente, __o Vscode já tem isto implementado, mas veremos outras formas também. Podemos inserir pontos de interrupção, nos quais podemos verificar linha por linha nosso código e verificar se tudo está ocorrendo corretamente__
+- Para isso, __usaremos a ferramenta de executar e depurar no modo de configuração node.js__
+- Através disto, __podemos verificar a execução do nosso código e se existem problemas. Além disto, ele pode inspecionar cada parte do código, trazendo especifidade, e também se os itens são objetos, listas, e diferentes variáveis__
+- A depuração é muito importante, __para entender de fato todo nosso código__
+
+#### Exercícios
