@@ -997,5 +997,81 @@ console.log(alunos[1]);
 
 - __A notação de acesso de acesso é parecido com a notação de objetos, porém utilizando `[]`. De certa forma são um coleção de dados, onde listas são diretas e objetos `chave:valor`__
 - Se nós perdirmos __uma posição que o `array` não tenha, retorna `undefined`__
-- Agora que sabemos disto tudo, __como podemos remover um dos alunos da nossa lista?__
-- 
+- Agora que sabemos disto tudo, __como podemos remover ou adicionar um dos alunos à nossa lista?__
+- Por estarmos trabalhando com `Arrays`, __temos diferentes métodos para quando acessamos nossa variável, todos eles manipulam nossa lista de uma forma diferente:__
+  - `push`: Empurra um novo item para nosso array
+
+```javascript
+const alunos = ['Arthur', 'João'];
+alunos.push('Kleber');
+alunos[3] = 'Vinicius';
+console.log(alunos);
+```
+
+- O resultado será `[ 'Arthur', 'João', 'Kleber', 'Vinicius' ]`
+- Ou seja, __temos formas dinâmicas de adicionar um novo item no array utilizando métodos, e formas mais verbosas, indicando o número do item que será adicionado__
+- Se nós mudarmos `alunos[2] = 'Vinicius`, __o `Kleber'` é substituído no array__
+- __Nossa lista, não precisa estar com itens necessáriamente. Ela pode estar vazia e ser adicionados itens a ela. Assim como os itens que forem adicionados, poderem ser mudados, alterados, de acordo com os métodos da lista. E também, os itens da lista são variados entre seus tipos__
+
+```javascript
+const frutas = [];
+frutas.push('Maçã', 'Pera');
+console.log(frutas);
+// [ 'Maçã', 'Pera' ]
+```
+
+- Podemos também remover um item utilizando `pop()`, __O método pop() remove o último elemento de um array e devolve esse elemento. Este método altera o comprimento de um array. Podemos também especificar:__
+
+```javascript
+const frutas = [];
+frutas.push('Maçã', 'Pera');
+frutas.pop();
+// Remove 'Pera'
+frutas.pop();
+// Remove 'Maçã'
+console.log(frutas);
+// Retorna []
+```
+
+- Desta forma, __podemos alterar totalmente nosso array desta forma, lembrando que ele sempre irá retirar o último item da lista de arrays. Podemos ver isto com: `console.log(frutas.pop());`, que nos mostra qual foi o item retirado da lista, no caso "Pera"__
+- Se nós quisermos retirar __o primeiro item do nosso array, podemos utilizar o método `shift()`__
+
+```javascript
+const frutas = [];
+frutas.push('Maçã', 'Pera', 'Banana', 'Ameixa');
+console.log(frutas.pop());\
+// Retira 'Ameixa'
+console.log(frutas.shift());
+//  Retira 'Maçã'
+console.log(frutas);
+// Resulta em [ 'Pera', 'Banana' ]
+```
+
+- Também podemos remover __um único item específico da lista também__
+- Vamos supor em um sistema de média de alunos:
+
+```javascript
+const notas = [];
+notas.push(5, 7, 8, 2, 5);
+
+console.log(notas)
+// [ 5, 7, 8, 2, 5 ]
+console.log(notas.length)
+// 5
+```
+
+- __Sabemos que para realizar a média, necessitamos somar tudo e dividir pela quantidade de notas. Nossa lista está sendo dinâmica, e para sabermos o tamanho da nossa lista, podemos utilizar o método `lenght()`. No nosso caso, saberemos que possuímos 5 itens na nossa lista__
+- Para podermos realizar a soma, __temos de saber percorrer posição à posição da nossa lista__
+- Temos duas maneiras de fazer:
+
+```js
+// Muito verbosa e dificíl de entender
+const notas = [];
+notas.push(5, 7, 8, 2, 5);
+
+const soma1 = notas[0] + notas[1] + notas[2] + notas[3] + notas[4];
+console.log(soma1/5);
+```
+
+- __O maior problema desta forma, é que temos que saber os números exatos de quantidade de notas para poder realizar o cálculo, sendo muito verbosa e difícil de entender__
+- ___O que nós precisamos aprender são estruturas de repetição, que vão percorrer a lista, pegando os valores e somando-os. Existem várias estruturas de repetição, assim como as condicionais que já vimos__
