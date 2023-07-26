@@ -973,4 +973,29 @@ paciente2.imc();
 tipoImc(paciente2);
 ```
 
-- Através da classe e da função, é possível saber o imc e qual o tipo dele. Com isto, podemos entender um pouco de como a orientação à objetos funciona em javaScript 
+- Através da classe e da função, é possível saber o imc e qual o tipo dele. Com isto, podemos entender um pouco de como a orientação à objetos funciona em javaScript
+
+#### Entendendo Arrays
+
+- Antes de continuarmos a mexer com orientação a objetos, que tivemos uma pequena introdução à ela, veremos as listas no JavaScript
+- __As listas de conteúdo no js são chamadas de `arrays`.__ Estavámos lidando com fatores como __variáveis do tipo `const` e `let`, além de lidar com condicionais para cada situação existente do nosso problema. Assim como os objetos também. Agora, e se tivéssemos uma variável onde ela possui diferentes valores?__
+- Suponhamos o exemplo abaixo:
+
+```javascript
+const alunos  = ['string', numeral];
+```
+
+- Para se declarar um array, __usamos o `[]`, no qual podemos inserir `strings` ou `numeros`. Com isto, armazenamos em uma única variável um conjunto de dados. Podemos até mesmo imprimir que o resultado será nossa lista__
+- __É importante dizer que listas começam numeradas em 0, ou seja, o primeiro item da lista é 0__
+- Se quisermos selecionar para impressão de apenas um aluno, por exemplo, podemos utilizar o `alunos[0, 1, 2...]`, __onde dentro dos `[numeroDoItem]` iremos inserir um número indicando a posição do nosso item__
+
+```javascript
+const alunos = ['Roberto', 'Maria'];
+console.log(alunos[1]);
+// 'Maria'
+```
+
+- __A notação de acesso de acesso é parecido com a notação de objetos, porém utilizando `[]`. De certa forma são um coleção de dados, onde listas são diretas e objetos `chave:valor`__
+- Se nós perdirmos __uma posição que o `array` não tenha, retorna `undefined`__
+- Agora que sabemos disto tudo, __como podemos remover um dos alunos da nossa lista?__
+- 
