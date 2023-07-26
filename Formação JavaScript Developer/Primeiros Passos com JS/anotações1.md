@@ -1176,3 +1176,18 @@ console.log(mediaNotas);
 - A depuração é muito importante, __para entender de fato todo nosso código__
 
 #### Exercícios
+
+- Criar um programa onde, dado um número, seja exibida sua tabuada:
+
+```javascript
+const listaTabuada = []
+listaTabuada.push(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+for (let i = 0; i <= listaTabuada.length; i++) {
+    console.log(i * 5);
+}
+```
+
+- Este pequeno código __percorre toda a lista, onde nós podemos inserir nosso valor, e ele irá multiplicar de acordo com o número da lista__
+- __Quando nós depuramos um código, entendemos cada vez mais sobre os resultados e se toda etapa funcionou corretamente__
+
