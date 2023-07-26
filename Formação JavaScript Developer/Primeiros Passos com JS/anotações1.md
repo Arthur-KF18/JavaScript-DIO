@@ -1191,3 +1191,31 @@ for (let i = 0; i <= listaTabuada.length; i++) {
 - Este pequeno código __percorre toda a lista, onde nós podemos inserir nosso valor, e ele irá multiplicar de acordo com o número da lista__
 - __Quando nós depuramos um código, entendemos cada vez mais sobre os resultados e se toda etapa funcionou corretamente__
 
+- Crie um programa que seja capaz  de percorrer uma lista de números e imprima cada número par encontrado
+
+```javascript
+const numeros = [];
+numeros.push(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+for (let i = 0; i < numeros.length; i++) {
+    const numero = numeros[i];
+    if (numero % 2 === 0) {
+        console.log(numero);
+    }
+}
+```
+
+- Através deste código, __verificamos nossa lista, e para cada item teremos a condição `numero % 2 === 0`, onde se o resto da divisão for 0, ele é par, e imprimindo todos os números pares da nossa lista__
+- Podemos fazer da seguinte maneira também:
+
+```javascript
+const numerosPares = [];
+
+for (let i = 0; i < 10; i = i + 2) {
+    numerosPares.push(i);
+}
+
+console.log(numerosPares);
+```
+
+- Essa função __irá imprimir apenas os valores pares, de forma que nossa lista, terá a adição de novos elementos pares apenas quando a condição for atendida. Isto é representado por: `numerosPares.push(i)`, já que `i` é a iteração de cada elemento inserido na lista__
