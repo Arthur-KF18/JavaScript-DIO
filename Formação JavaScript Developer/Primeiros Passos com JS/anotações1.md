@@ -1332,3 +1332,99 @@ console.log(funcoes.print('Fui importado!'))
 #### Dominando Object Destructuring
 
 - Object destructuring pode ser dito como: __desestruturação de objetos JavaScript, que atribui propriedades de um objeto a variáveis individuais.__
+- Seguiremos o exemplo abaixo para explicação:
+
+```javascript
+let pessoa = {
+    primeiroNome: 'Arthur',
+    segundoNome: 'K'
+}
+```
+
+- __Antes do ES6, quando você queria atribuir propriedades do objeto `pessoa` a variáveis, normalmente fazia isso da seguinte forma:__
+
+```javascript
+let primeiroNome = pessoa.primeiroNome;
+let segundoNome = pessoa.segundoNome;
+```
+
+- __O ES6 introduz a sintaxe de desestruturação de objetos que fornece uma maneira alternativa de atribuir propriedades de um objeto a variáveis:__
+
+```javascript
+let { primeiroNome: pnome, segundoNome: snome } = person;
+```
+
+- Neste exemplo, __as propriedades do `primeiroNome` e `segundoNome` estão atribuídos a `pnome` e `snome` respectivamente. Em resumo, nossa sintaxe se comporta desta maneira:__
+
+```javascript
+let { propriedade1: variável1, propriedade2: variável2 } = objeto;
+```
+
+- Com isto, vale lembrar que, __o identificador antes do `:` é a propriedade de um objeto, e o identificador depois do `:` é a variável. Observe que o nome da propriedade está sempre à esquerda, seja em um literal de objeto ou em uma sintaxe de desestruturação de objeto.__
+- Se as variáveis tem o mesmo nome do que as propriedades de um objeto, podemos deixar o código mais conciso:
+
+```javascript
+let {primeiroNome, segundoNome} = pessoa;
+
+console.log(primeiroNome)
+console.log(segundoNome)
+```
+
+- __Neste exemplo, declaramos duas variáveis primeiroNome e segundoNome e atribuímos as propriedades do objeto `pessoa` às variáveis na mesma instrução. Quando você atribui uma propriedade que não existe a uma variável usando a desestruturação de objetos, a variável é definida como indefinida. Por exemplo:__
+
+```js
+let {primeiroNome, segundoNome, terceiroNome} = pessoa;
+
+console.log(primeiroNome)
+console.log(segundoNome)
+console.log(terceiroNome)
+// Retorna `undefined`
+```
+
+- A desestruturação de objetos __é um recurso útil do JavaScript para extrair propriedades de objetos e vinculá-las a variáveis.__
+- Melhor ainda, a desestruturação de objetos __pode extrair várias propriedades em uma única instrução, pode acessar propriedades de objetos aninhados e pode definir um valor padrão se a propriedade não existir.__
+- Vamos supor que queremos extrair __algumas propriedades de um objeto:__
+
+```javascript
+// Como é o objeto
+let pessoa = {
+//  propriedade: valor 
+    primeiroNome: 'Arthur',
+    segundoNome: 'K',
+    idade: 21
+}
+// Se for retirar uma propriedade(chave):
+const meuNome = pessoa.primeiroNome;
+const meuSobrenome = pessoa.segundoNome;
+//                   variavel.propriedade 
+// imprimindo ela:
+console.log(meuNome)
+// Retorna `Arthur`
+```
+
+- __A propriedade `pessoa.primeiroNome` está associada à variável `meuNome`, e o mesmo ocorre para o `segundoNome`. Ao escrevermos `const meuNome = pessoa.primeiroNome`, precisamos mencionar a vinculação do nome duas vezes, e o mesmo para `meuSobrenome`. Esta forma de acessar as propriedades e atribuí-las às variáveis requer um código padrão.__
+- Agora aplicaremos a desestruturação de objetos:
+
+```javascript
+const {primeiroNome, segundoNome, idade} = pessoa;
+// const { identificador } = expressão
+```
+
+- Desta forma simples, podemos __associar uma propriedade dentro de uma variável.__
+- Agora, e para __extrair uma propriedade? Lembrando que nossa sintaxe é `const { identificador } = expressao`, onde o `identificador` é o nome da propriedade que queremos acessar e `expressao` o nosso objeto.Após desestruturar, a variável `identificador` contém o valor da propriedade.__
+- Para várias propriedades, basta utilizar a vírgula. __Se o nome da propriedade não existir, volta `undefined`__
+- Se o __objeto desestruturado não contém a propriedade que buscamos, por exemplo `const {irmao} = pessoa`, ele retorna `Undefined`. Uma maneira de definir um valor padrão para isto, é `const {irmao = ['Thiago']} = pessoa`, ou seja, após a desestruturação, o `identificador` da variável contém o valor da propriedade ou é atribuído com `defaultValue` se o `identificador` da propriedade não existir.__
+
+```javascript
+let pessoa = {
+    primeiroNome: 'Arthur',
+    segundoNome: 'K',
+    idade: 21
+}
+
+let {primeiroNome, segundoNome, idade} = pessoa;
+
+console.log(primeiroNome + segundoNome + idade);
+
+```
+
