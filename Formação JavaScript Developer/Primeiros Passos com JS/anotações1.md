@@ -1219,3 +1219,116 @@ console.log(numerosPares);
 ```
 
 - Essa função __irá imprimir apenas os valores pares, de forma que nossa lista, terá a adição de novos elementos pares apenas quando a condição for atendida. Isto é representado por: `numerosPares.push(i)`, já que `i` é a iteração de cada elemento inserido na lista__
+
+#### Desvendando as funções gets e print
+
+- Agora que já vimos sobre variáveis, operadores, condicionais, funções, objetos, classes, listas e agora iremos ver sobre __importação e exportação em JavaScript__
+- __Precisamos aprender sobre como podemos organizar nosso código, de forma que, não fique "cheio" de funções, variáveis e tudo que vimos em um único arquivo__
+- Para aprendermos um pouco mais sobre __distribuição de responsabilidade, como encapsular os códigos, de forma a ficar mais simples, menos complexa e mais fácil de ler, iremos trabalhar com importação de arquivos__
+- Vale destacar que: __a importação utilizando node e a importação utilizando o browser, React e ademais, funcionam de formas diferentes__
+- Aqui veremos com mais detalhes os __princípios de segmentação do código__
+- Para podermos fazer a importação de arquivos, utilizaremos a forma mais simples possível, ultimamente no js temos o __`module exports`__, uma sintaxe mais moderna, bem mais utilizada no próprio node e no React.
+- __Para poder utilizar o `module exports` no Node, temos que configurar o `package.json` e outras etapas diferentes__
+- Afim didático, será usada a forma mais simples de __importação e exportação__
+- Iremos criar um arquivo chamado `funcoes_auxiliares.js`. É interessante para aprendermos e entendermos como a plataforma da DIO funciona por exemplo.
+- Quando nós __realizamos os desafios de código, existem duas funções existentes que são responsáveis pelos códigos apresentados, que são o `gets` e o `print`__
+  - o `gets` pega __uma leitura como se fosse um `input` e o `print` como se fosse um `console'log`. Por baixo dos panos da plataforma, há um "motor" que analisa os códigos e os corrige automaticamente__
+  - Simularemos o `gets` e o `print`
+- Primeiro iremos definir duas funções:
+
+```javascript
+function gets() {
+    return 10;
+}
+
+function print(texto) {
+    console.log(texto);
+}
+```
+
+- Criamos uma função __que imprime o texto, a `print`, e a `gets`, que vai passar o texto. Antes de fazermos isto, no `gets()` vamos "mocká-lo". Mockar é um termo utilizado para simulação. É como se estivéssemos simulando uma leitura__
+- Agora, iremos criar um novo arquivo chamado `main.js`, __onde nós iremos realizar a importação das funções anteriores__
+- Para podermos fazer isto em node, __utilizaremos o `require()`__
+  - De acordo com a __documentação do Node:__
+  - CommonJS modules, ou, __módulos do JS comum, é a forma original de encapsular códigos javascript. Cada arquivo em Node.js é tratado com um módulo separado__
+  - utilizando a sintaxe `require(./caminhodoarquivo.js)`, __o node irá requerer o arquivo que precisamos.__
+  - É importante que __os módulo que estamos importando, tenha as funções acompanhadas por `exports.nomeDaFunção`. As funções e os objetos são adicionados à raiz de um módulo por meio da especificação de propriedades adicionais no objeto especial de exportação.__
+- __Quando estamos importando algo, estamos importando algo que está sendo exportado__
+- Para podemos exportar algo, utilizamos:
+
+```javascript
+module.exports = {
+    gets, print
+}
+```
+
+- __Quebrando nosso código. Temos um objeto `module`, e ele possui um atributo chamado `exports`. Tudo que estar dentro do atributo, será exportado. Como sabemos dos objetos, podemos inserir um objeto literal, e dentro dele iremos inserir as nossas funções__
+
+```js
+// Relembrando objetos:
+const objeto = {
+    nome: 'Arthur',
+    numero: 12
+}
+// sintaze do module
+module.exports = {
+    gets: gets,
+    print: print
+}
+```
+
+- __`module` é um objeto, onde estamos exportando ele. E também, nosso objeto tem suas chaves, e nela definimos os valores, as nossas variáveis. Não é necessário atribuir, mas é uma boa prática também__
+- Poderiamos fazer também a __exportação direta da função, já que o `module` já vem com um objeto vazio normalmente, ficando `module.exports.gets = gets;`__
+- Para verificar se nossa constante `funcoes` está recebendo as duas funções, podemos imprimir a nossa constante:
+
+```javascript
+const funcoes = require('./funcoes_auxiliares');
+
+console.log(funcoes)
+```
+
+- __O resultado no console é `{ gets: [Function: gets], print: [Function: print] }`. Onde temos um objeto, onde temos um método `gets` que está atribuído nossa função, assim como o `print`__
+- Se chamarmos a função e executá-la, ficará:
+
+```javascript
+const funcoes = require('./funcoes_auxiliares.js');
+
+console.log(funcoes.gets())
+console.log(funcoes.print('Fui importado!'))
+// 10
+//  Fui importado!
+```
+
+#### Object Destructuring
+
+- __Um fator de extrema importância:__
+  - __Quando temos um objeto, podemos fazer um `Object Destructuring`. Nós podemos destruir um objeto. Pode ser qualquer objeto,por exemplo nosso objeto `pessoa`:__
+  
+	```javascript
+	//  Objeto
+	const pessoa = {
+			nome: 'Arthur'
+	};
+	//  Objeto desestruturado
+	const {nome} = pessoa;
+	// É o mesmo que:
+	const nome = pessoa.nome;
+	```
+
+  - __Podemos pegar vários atributos, e somente fazer isto para realizar o destructuring. Podemos aplicar isto na nossa importação__
+
+	```javascript
+	const {gets, print} = require('./funcoes_auxiliares.js');
+
+	print(gets());
+	// 10
+	```	
+
+	- __Pegamos o objeto que estava lá dentro do `funcoes_auxiliares`, criei duas variáveis `gets` e `print` que estava recebendo como objeto `get` e `print`. É uma forma de fazer bastante código com pouca linha__
+  - Dessa forma, __simulamos os exercícios da plataforma por exemplo, e ainda podemos depurá-lo__
+- Recapitulando, __estamos importando algo que está sendo exportado sempre.__
+- Uma coisa interessante de se falar é: __Como funciona o ciclo de vida da nossa execução? Quando importamos a primeira vez, o node.js executa todo o código e prepara o objeto, e ai ele irá dizer que o arquivo contém uma saída o objeto `gets`. Se importarmos novamente nosso arquivo, ele não irá ler ele inteiro novamente pois ele já sabe que já importou aquele objeto pronto__
+
+#### Dominando Object Destructuring
+
+- Object destructuring pode ser dito como: __desestruturação de objetos JavaScript, que atribui propriedades de um objeto a variáveis individuais.__
