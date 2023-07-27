@@ -1428,3 +1428,92 @@ console.log(primeiroNome + segundoNome + idade);
 
 ```
 
+#### Praticando os Conceitos de Importação e Exportação
+
+1. Uma sala conteém 5 alunos, e para cada aluno foi sorteado um número de 1 a 100. Faça um programa que receba os 5 números sorteados para os alunos e mostre o maior número sorteado
+
+- Dados de entrada: 5 50 10 98 23
+- Saída: 98
+
+- Primeiro __iremos criar um conjunto de dados, e neles iremos criar um loop. Não utilizaremos o `for` pois estamos verificando cada entrada de dados. Dentro da função `gets()` iremos passar o índice de cada item da lista com `conjuntoEntradas[i]` e com isto, iremos usar o `i++` para somar um para ir ao próximo item em cada chamada da nossa função.__
+
+```javascript
+// funções:
+const conjuntoEntradas = [5, 50, 10, 98, 23];
+let i = 0;
+
+function gets() {
+    const valor = conjuntoEntradas[i];
+    i++;
+    return valor;
+}
+
+function print(texto) {
+    console.log(texto);
+}
+
+module.exports = {
+    gets,
+    print
+}
+
+```
+
+- Após termos feito isto, nós iremos no nosso `main.js` e __realizar o método de impressão, ou, `print(gets());`, e para cada linha adicionada, será feito a adição de mais um item:__
+
+```javascript
+print(gets()); // 5
+print(gets()); // 50
+print(gets()); // 10
+print(gets()); // 98
+print(gets()); // 23
+```
+
+- Agora precisamos da lógica para verificar __dentre todos os números, qual é o maior. Podemos fazer isto adicionando todas as quantidades de entradas em uma lista e depois veremos qual é o maior:__
+
+```javascript
+const numerosSorteados = [];
+
+for (let i = 0; i < 5; i++) {
+    const numeroSorteado = gets();
+    numerosSorteados.push(numeroSorteado);
+}
+
+print(numerosSorteados);
+```
+
+- __Criamos uma variável onde temos um array vazio. Para adicionar os números neste array, utilizamos a estrutura do `for`. Para cada item, será impresso até que passe de 5 itens na lista. Nós então guardaremos em uma variável `numeroSorteado = gets()`, já que `gets()` é cada item da nossa lista exportada__
+- Assim, iremos __adicionar os itens da lista até preenche-la com `numerosSorteados.push(numeroSorteado);` e basta imprimirmos com `print(numerosSorteados)`__
+- O resultado no console será `[5, 50, 10, 98, 23]`
+- Agora temos que verificar, qual é o maior de todos os itens do nosso array:
+
+```javascript
+let maiorValor = 0;
+
+for (let i = 0; i < numerosSorteados.length; i++) {
+    const numeroSorteado = numerosSorteados[i];
+    if (numeroSorteado > maiorValor) {
+        maiorValor = numeroSorteado;
+    }
+}
+```
+
+- O que ocorreu é que: __Criamos a variável `maiorValor = 0`, que indica com qual valor nossa lista `numerosSorteados` irá comparar. Depois, criarmos um `for`, que irá fazer nosso loop. Ele vai verificar cada item do array e será feito o seguinte. Se o `numeroSorteado` for maior que `maiorValor`, o `maiorValor` será igual ao `numeroSorteado`. Com isto, ele irá verificar se cada número adicionado irá ser maior que o anterior. Basta imprimir com `print(maiorValor)` e teremos o maior número da nossa lista__
+- Podemos simplificar e muito nosso código desta forma:
+
+```js
+const quantidadeItens = gets();
+let maiorValor = 0;
+
+for (let i = 0; i < quantidadeItens; i++) {
+    const numeroSorteado = gets();
+    if (numeroSorteado > maiorValor) {
+        maiorValor = numeroSorteado
+    }
+}
+
+print(maiorValor);
+```
+
+- Não precisamos __de uma variável de lista para realizar nossa função. Como nós temos o `gets()`, ele já retorna cada item unicamente. Só inserimos a lógica para verificar se o número do `gets()` é maior ou não que o anterior__
+- E para deixarmos dinâmico de acordo com o tamanho da lista, __iremos ter uma variável `quantidadeItens` que corresponde a `gets()`, se tornando totalmente dinâmico, independente da quantidade de itens existentes__
