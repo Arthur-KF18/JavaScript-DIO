@@ -1517,3 +1517,24 @@ print(maiorValor);
 
 - Não precisamos __de uma variável de lista para realizar nossa função. Como nós temos o `gets()`, ele já retorna cada item unicamente. Só inserimos a lógica para verificar se o número do `gets()` é maior ou não que o anterior__
 - E para deixarmos dinâmico de acordo com o tamanho da lista, __iremos ter uma variável `quantidadeItens` que corresponde a `gets()`, se tornando totalmente dinâmico, independente da quantidade de itens existentes__
+
+#### Consolidando conhecimneto com desafios de código javascript
+
+1. Faça um programa que receba a média de um aluno. Caso a média seja< 5, imprima reprovado. Caso a média esteja entre >= 5 e < 7 imprima recuperação. Caso a média seja >= 7 imprima aprovado:
+
+```javascript
+const media = gets();
+
+if (media >= 0 && media < 5) {
+    print('Reprovado');
+} else if (media >= 5 && media < 7) {
+    print('Recuperação');
+} else if (media >= 7) {
+    print('Aprovado');
+} else {
+    print('Número invalido!');
+}
+```
+
+- __Nossa variável `media` guarda os valores vindos das funções `gets` e `print` através da desestruturação dos objetos importados__
+
