@@ -1538,3 +1538,32 @@ if (media >= 0 && media < 5) {
 
 - __Nossa variável `media` guarda os valores vindos das funções `gets` e `print` através da desestruturação dos objetos importados__
 
+2.Faça um programa que receba N (quantidade de números) e seus respectivos valores e imprima o maior número par e o menor número ímpar
+
+```javascript
+const n = gets()
+let maiorNumeroPar = null;
+let menorNumeroImpar = null;
+
+for (let i = 0; i < n; i++) {
+    const numero = gets();
+
+    if (numero % 2 === 0) {
+        if (maiorNumeroPar === null || numero > maiorNumeroPar) {
+            maiorNumeroPar = numero;
+        }
+    } else {
+        if (menorNumeroImpar === null || numero < menorNumeroImpar) {
+            menorNumeroImpar = numero;
+        }
+    }
+}
+
+print(`O maior número é: ${maiorNumeroPar}`)
+print(`O menor número é: ${menorNumeroImpar}`) 
+
+```
+
+- __O que ocorreu é: Tivemos uma inserção de itens na nossa `gets()`. Guardamos em uma variável chamada `n` o valor vindo da nossa função. Depois, iremos guardar em duas variáveis `maiorNumeroPar` e `menorNumeroImpar` que irão dizer que não co.__
+- Agora, quando nós __formos verificar, veremos que, se o resultado do nosso número da  vez, o `const numero = gets();`, vai ser par ou impar.__
+- Iremos verificar que, __se o `maiorNumeroPar` for nulo ou o `numero` for maior que o `maiorNumeroPar`. Então, quando o loop for iniciado, ele irá verificar se existe o número, e se não for, ele é atribuído ao `numero`. Iremos fazer o mesmo em ambas variáveis, verificando corretamente se existe ou não um número, e se existe, ele irá substituir caso seja par ou impar__
