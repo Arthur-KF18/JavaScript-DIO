@@ -1567,3 +1567,43 @@ print(`O menor número é: ${menorNumeroImpar}`)
 - __O que ocorreu é: Tivemos uma inserção de itens na nossa `gets()`. Guardamos em uma variável chamada `n` o valor vindo da nossa função. Depois, iremos guardar em duas variáveis `maiorNumeroPar` e `menorNumeroImpar` que irão dizer que não co.__
 - Agora, quando nós __formos verificar, veremos que, se o resultado do nosso número da  vez, o `const numero = gets();`, vai ser par ou impar.__
 - Iremos verificar que, __se o `maiorNumeroPar` for nulo ou o `numero` for maior que o `maiorNumeroPar`. Então, quando o loop for iniciado, ele irá verificar se existe o número, e se não for, ele é atribuído ao `numero`. Iremos fazer o mesmo em ambas variáveis, verificando corretamente se existe ou não um número, e se existe, ele irá substituir caso seja par ou impar__
+
+3.Faça um programa que calcule e imprima o salário a ser transferido para um funcionário. Para realizar o calculo receba o valor bruto do salário e o adicional dos benefícios. O salário a ser transferido é calculado da seguinte maneira: 
+
+- `(valor bruto do salário - percentual de imposto mediante ao salário) + adicional dos benefícios`
+
+- Para calcular o percentual de imposto segue as aliquotas:
+  - De R$ 0.00 a R$ 1100.00 = 5.00%
+  - De R$ 1100.01 a R$ 2500.00 = 10.00%
+  - Maior que R$ 2500.00 = 15.00%
+
+```javascript
+const valorSalario = gets();
+const valorBeneficios = gets();
+
+function calculaImposto(valor, percentual) {
+    return valor * (percentual / 100);
+}
+
+function pegarAliquota(salario) {
+    if (salario >= 0 && salario <= 1100) {
+        return 5;
+    } else if (salario >= 1100.01 && salario <= 2500) {
+        return 10;
+    } else {
+        return 15;
+    }
+}
+
+const aliquotaDoImposto = pegarAliquota(valorSalario)
+const valorImposto = calculaImposto(valorSalario, aliquotaDoImposto)
+
+const transferir = valorSalario - valorImposto + valorBeneficios;
+
+print(transferir);
+```
+
+- __O que ocorre é: Criamos duas variáveis. A primeira `valorSalario` que se refere ao valor do nosso salário, e dos benefícios em `valorBeneficios`. Na nossa função auxiliar, o `gets()` está com `[2000, 250]`, onde `[salario, beneficios]`__
+- Com isto, iremos criar uma __função chamada `calculaImposto` onde ela irá pegar nosso `valorSalario` e aplicar o percentual de imposto. A função `pegarAliquota` é responsável por verificar o valor do salário e retornar uma % sobre quanto será aplicado quando for dividido por 100 em `valor * (percentual / 100);`.__
+- Após isto, já teremos as funções necessárias, então __precisaremos das variáveis que armazenam estes valores: `aliquotaDoImposto` recebe a % do imposto, depois temos `valorImposto` que vai receber o valor do salário com a % de imposto. Por fim, iremos ter uma função `transferir` onde `valorSalario - valorImposto + valorBeneficios`__
+- Com isto, teremos completado o que o exercício necessitava, e podemos calcular qualquer salário existente.
